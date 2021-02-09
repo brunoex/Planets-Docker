@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlanetsController!{% endblock %}
+
+{% block body %}
+<div id="container">
+<h2 id="header" class="box">Select a planet and a terran based time to calculate current time in planet of choice:</h2>
+
+<div id="results" class="box calculate">
+    <h2>Calculate:</h2>
+    {{ form(form) }}
+
+    <p>->Result:</p>  
+    {% if info is defined %}
+        <p id="result-text">The year on planet {{info.name}} is: {{info.year}}</p>
+    {% endif %} 
+</div>
+
+<div class='box add'>
+    {% if itemAdded is defined %}
+        <p class="added">Planet {{itemAdded}} added!</p>
+    {% endif %}
+    
+    <h2>Add a Planet:</h2>
+    {{ form(add) }}
+</div>
+</div>
+
+{% endblock %}
